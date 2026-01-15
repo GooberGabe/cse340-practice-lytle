@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+    <h1>About Us</h1>
+    <main>
+        <h1><%= title %></h1>
+        <section>
+            <p>My name is Gabe. I enjoy hiking, camping, rock climbing, video games, and of course coding.</p>
+        </section>
+        <section>
+            <figure>
+                <img src="/images/selfie.jpg" alt="Arches selfie" style="width: 20%; height: auto;">
+                <figcaption>A photo of me at Arches National Park</figcaption>
+            </figure>
+        </section>
+    </main>
+    <%- include('partials/footer') %>
+</body>
+</html>
