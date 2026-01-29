@@ -1,0 +1,16 @@
+
+CONTROLLER
+-- Express route handler functions
+-- Call model function
+-- Determine which views to render 
+
+MODEL 
+-- DB Queries
+-- Validation
+-- Return data/error to controller
+
+VIEW
+-- Render responses
+
+Views remains the same-- We already have the views
+
