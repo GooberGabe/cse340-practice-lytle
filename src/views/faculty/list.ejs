@@ -1,0 +1,22 @@
+<%- include('../partials/header') %>
+<main>
+	<h1>Faculty Directory</h1>
+	<p>Browse our instructors and click a name to see full contact details.</p>
+
+	<div class="course-list faculty-list">
+		<% faculty.forEach(member => { 
+			const facultyId = member.id || member.slug || member.name;
+		%>
+			<div class="course-card faculty-card" data-name="<%= member.name %>" data-department="<%= member.department %>" data-title="<%= member.title %>">
+				<h3><a href="/faculty/<%= facultyId %>"><%= member.name %></a></h3>
+				<p class="course-id"><%= member.department %> • <%= member.title %></p>
+				<p class="course-description">Office: <%= member.office %> • Phone: <%= member.phone %></p>
+			</div>
+		<% }); %>
+	</div>
+
+	<div class="navigation">
+		<p><a href="/">&larr; Back to Home</a></p>
+	</div>
+</main>
+<%- include('../partials/footer') %>
