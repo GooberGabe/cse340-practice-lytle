@@ -37,6 +37,15 @@ export const addLocalVariables = (req, res, next) => {
     const randomTheme = themes[Math.floor(Math.random() * themes.length)];
     res.locals.bodyClass = randomTheme;
 
+    if (!Array.isArray(res.locals.styles)) {
+        res.locals.styles = [];
+    }
+    res.addStyle = (linkTag) => {
+        if (typeof linkTag === 'string' && linkTag.trim()) {
+            res.locals.styles.push(linkTag);
+        }
+    };
+
     // Continue to the next middleware or route handler
     next();
 };

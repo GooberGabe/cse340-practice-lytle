@@ -6,6 +6,9 @@
     <title><%= title %></title>
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/catalog.css">
+    <% if (styles && styles.length) { %>
+    <%- styles.join('\n    ') %>
+    <% } %>
     <% if (NODE_ENV.includes('dev')) { %>
     <script>
         // Get the current hostname and port from the browser
@@ -31,6 +34,10 @@
                 <li><a href="/about">About</a></li>
                 <li><a href="/catalog">Course Catalog</a></li>
                 <li><a href="/faculty">Faculty Directory</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/contact/responses">Contact Responses</a></li>
+                <li><a href="/register">Register</a></li>
+                <li><a href="/register/list">Users</a></li>
             </ul>
         </nav>
     </header>

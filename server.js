@@ -1,6 +1,7 @@
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { setupDatabase, testConnection } from './src/models/setup.js';
 
 import routes from './src/controllers/routes.js';
 import { addLocalVariables } from './src/middleware/global.js';
@@ -54,6 +55,10 @@ app.use((err, req, res, next) => {
     }
 });
 
+// Allow Express to receive and process POST data
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 // Development websocket server for live reloading
 if (NODE_ENV.includes('dev')) {
     const ws = await import('ws');
@@ -75,6 +80,8 @@ if (NODE_ENV.includes('dev')) {
 }
 
 // Start server
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
+    await setupDatabase();
+    await testConnection();
     console.log(`Server is running on http://127.0.0.1:${PORT}`);
 });
