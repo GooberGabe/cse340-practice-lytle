@@ -55,6 +55,10 @@ app.use((err, req, res, next) => {
     }
 });
 
+// Allow Express to receive and process POST data
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 // Development websocket server for live reloading
 if (NODE_ENV.includes('dev')) {
     const ws = await import('ws');
