@@ -46,6 +46,12 @@ export const addLocalVariables = (req, res, next) => {
         }
     };
 
+    // Convenience variable for UI state based on session state
+    res.locals.isLoggedIn = false;
+    if (req.session && req.session.user) {
+        res.locals.isLoggedIn = true;
+    }
+
     // Continue to the next middleware or route handler
     next();
 };
