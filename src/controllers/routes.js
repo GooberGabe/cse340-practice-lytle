@@ -8,6 +8,7 @@ import registrationRoutes from './forms/registration.js';
 import loginRoutes from './forms/login.js';
 import { processLogout, showDashboard } from './forms/login.js';
 import { requireLogin } from '../middleware/auth.js';
+import { contactValidation, registrationValidation, loginValidation, updateAccountValidation  } from '../middleware/validation/forms.js'
 
 const router = Router();
 

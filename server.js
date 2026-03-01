@@ -8,6 +8,7 @@ import { caCert } from './src/models/db.js';
 import { startSessionCleanup } from './src/utils/session-cleanup.js';
 import routes from './src/controllers/routes.js';
 import { addLocalVariables } from './src/middleware/global.js';
+import flash from './src/middleware/flash.js';
 
 // Server configuration
 const __filename = fileURLToPath(import.meta.url);
@@ -51,6 +52,9 @@ app.set('views', path.join(__dirname, 'src', 'views'));
 
 // Global middleware
 app.use(addLocalVariables);
+
+// Flash message middleware (must come after session and global middleware)
+app.use(flash);
 
 // Routes
 app.use('/', routes);
